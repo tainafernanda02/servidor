@@ -31,6 +31,19 @@ app.use(
 app.get('/autenticar', async function(req, res){
   res.render('autenticar');
 })
+app.get('/listar', async function(req, res){
+  const usuario = await usuario.findAll();
+  res.json(usuario);
+})
+
+app.get('/cadastro', async function(req, res){
+  res.render('autenticar');
+})
+
+app.post('/cadastro', async function(req, res){
+  const usuario = usuario.create(req.body)
+  res.json(usuario);
+})
 
 app.get('/', async function(req, res){
   res.render("home");
@@ -60,5 +73,6 @@ app.post('/deslogar', function(req, res) {
 })
 
 app.listen(3000, function() {
+
   console.log('App de Exemplo escutando na porta 3000!')
 });
