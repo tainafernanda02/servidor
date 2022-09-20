@@ -32,12 +32,8 @@ app.get('/autenticar', async function(req, res){
   res.render('autenticar');
 })
 app.get('/listar', async function(req, res){
-  const usuario = await usuario.findAll();
-  res.json(usuario);
-})
-
-app.get('/cadastro', async function(req, res){
-  res.render('autenticar');
+  const usuarios = await usuario.findAll();
+  res.render('usuario', {usuarios});
 })
 
 app.post('/cadastro', async function(req, res){

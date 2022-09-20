@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+    <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+      <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Autenticar Usuario</a></h1>
+    </div>
+  <form action="/listar" method="post">
+    <head>
+      <meta charset="utf-8">
+      <title>Listar</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    
+    <body>
+<div>
+        <% usuarios.forEach(function(usuario){ %>
+            <%= usuario.user %>
+            <%= usuario.nome %>
+            <%= usuario.senha %>
+            <% }) %>
+</div>
+
+    </body>
+
+  </form>
+</body>
+</html>
