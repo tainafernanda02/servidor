@@ -36,9 +36,13 @@ app.get('/listar', async function(req, res){
   res.render('usuario', {usuarios});
 })
 
+app.get('/cadastrarUser', async function(req, res){
+  res.render('cadastro')
+})
+
 app.post('/cadastro', async function(req, res){
-  const usuario = usuario.create(req.body)
-  res.json(usuario);
+  const usuarios = usuario.create(req.body)
+  res.json(usuarios);
 })
 
 app.get('/', async function(req, res){

@@ -15,7 +15,7 @@
   <form action="/cadastro" method="post">
     <head>
       <meta charset="utf-8">
-      <title>Autenticar</title>
+      <title>Cadastrar</title>
       <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     
@@ -23,33 +23,29 @@
        <div class="formbg-outer">
        <div class="formbg">
        <div class="formbg-inner padding-horizontal--48">
-      <form id="stripe-login">
+        <form id="stripe-login">
      
        <div class="field padding-bottom--24">
-       <label for="text">usuario</label>
-      <input type="text" name="user" id="user">
+       <label for="user">usuario</label>
+       <input type="text" name="user" id="user">
        </div>
+      
+       <div class="field padding-bottom--24"> 
+       <label for="nome">nome</label>
+       <input type="text" name="nome" id="nome">
+       </div>
+
        <div class="field padding-bottom--24">
-       
-        <p>
-        <label for="password">Senha</label>
-       <input type="password" name="password">
-      </p>
-    </div>
+       <label for="senha">Senha</label>
+       <input type="text" name="senha" id="senha">
+       </div>
 
-
-     <div class="field padding-bottom--24">
+      <div class="field padding-bottom--24">
       <input type="submit" value="Confirmar">
-</div>
+      </div>
 </form>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</body>
-
-  </form>
 </body>
 </html>
