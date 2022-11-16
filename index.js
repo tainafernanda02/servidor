@@ -25,18 +25,18 @@ app.use(
     secret: process.env.SECRET,
     algorithms: ["HS256"],
     getToken: req => req.cookies.token
-  }).unless({ path: ["/autenticar", "/logar", "/deslogar","sobre"] })
+  }).unless({ path: ["/autenticar", "/logar", "/deslogar","sobre", "/cadastro"] })
 );
 
 app.get('/autenticar', async function(req, res){
   res.render('autenticar');
 })
-app.get('/listar', async function(req, res){
+app.get('/usuario', async function(req, res){
   const usuarios = await usuario.findAll();
   res.render('usuario', {usuarios});
 })
 
-app.get('/cadastrarUser', async function(req, res){
+app.get('/cadastro', async function(req, res){
   res.render('cadastro')
 })
 
@@ -53,15 +53,16 @@ app.get('/sobre', async function (req, res) {
   res.render('sobre');
 })
 
-app.post('/logar', (req, res) => {
-  if(req.body.user === 'Taina' && req.body.password === '0208'){
+app.post('/logar',  async (req, res) => {
+  const usuarios = await usuario.findOne({where:{user: req.body.user}})
+  if(req.body.user === usuarios.user && req.body.password === usuarios.senha){
     const id = 1;
     const token = jwt.sign({ id }, process.env.SECRET, {
       expiresIn: 3600 // expires in 5min
     });
 
     res.cookie('token', token, { httpOnly: true });
-    return res.json({ auth: true, token: token });
+    return res.render("home");
   }
 
   res.status(500).json({message: 'Login inválido!'});
